@@ -1,0 +1,36 @@
+
+.top-banner, .bottom-banner {
+	margin: 0 auto;
+	text-align: center;
+	height: 70px;
+	width: 100%;
+}
+
+.middle-section {
+	border: 1px solid #000000;
+	text-align: center;
+	height: 200px;
+	width: 100%;
+}
+
+.search-results-gamebomb {
+	height: 300px;
+
+}
+
+.search-results-youtube {
+	clear: both;
+
+}
+
+.user-answers {
+	
+}
+
+.options {
+	list-style: none;
+}
+
+img {
+
+}
