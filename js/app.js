@@ -38,20 +38,6 @@ Drink.prototype.add = function(ingredient) {
 	this[ingredient.name].push(ingredient);
 }
 
-var pantry = {
-	strong: ["Tequila", "Rum", "Bourbon"],
-	salty: ["Salt Ring", "Olive", "BACON!"],
-	sweet: ["Coke", "Red Bull", "Cranberry Juice"],
-	fruity: ["Cherry on Top", "Orange Peel", "Lime slice"],
-};
-
-var questions = {
-	strong: ["Let's get started. Do ya like your drinks strong?"],
-	salty: ["How about salty?"],
-	sweet: ["Want some sweetness with that?"],
-	fruity: ["What about a fruity finish to top it off?"],
-};
-
 var i1 = new Ingredient('strong', 'Tequila');
 var i2 = new Ingredient('salty', 'Salt Ring');
 var i3 = new Ingredient('sweet', 'Coke');
@@ -90,6 +76,10 @@ drink.add(randomSaltyIngredient);
 drink.add(randomSweetIngredient);
 drink.add(randomFruityIngredient);
 
+Drink.prototype.display = function() {
+	$('.results').text('May I suggest the following ingredients:');
+}
+
 $(document).ready(function() {
 
 	$('form').submit(function(e) {
@@ -101,9 +91,26 @@ $(document).ready(function() {
 			}
 			else {
 				userChoiceArray.push(false);
-			}
+			}		
 		})
 		console.log(userChoiceArray);
-	})
+		checkArray();
+	});
+
+	function checkArray() {
+		console.log(userChoiceArray[0]);
+		if (userChoiceArray[0] === true) {
+			console.log(drink.strong[0].type);
+		}
+		if (userChoiceArray[1] === true) {
+			console.log(drink.salty[0].type);
+		}
+		if (userChoiceArray[2] === true) {
+			console.log(drink.sweet[0].type);
+		}
+		if (userChoiceArray[3] === true) {
+			console.log(drink.fruity[0].type);
+		}
+	};
 });
 
