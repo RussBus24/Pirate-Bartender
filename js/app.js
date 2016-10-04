@@ -67,7 +67,7 @@ pantry.add(i12);
 
 Drink.prototype.display = function() {
 
-	$('.results').html('<p>May I suggest the following ingredients:</p><p> ' + this.strong.type + '</p><p> ' + this.salty[0].type + '</p> ');
+	$('.results').html('<p>May I suggest the following ingredients:</p><p> ' + this.strong[0].type + '</p><p> ' + this.salty[0].type + '</p> ');
 
 	/*this.strong.forEach(function(pantry) {
 
