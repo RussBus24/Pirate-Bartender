@@ -10,8 +10,8 @@ var Ingredient = function(name, type) {
 	this.type = type;
 }
 
-var Questions = function() {
-	this.question = [];
+var RandomIngredient = function() {
+	this.randomArray = [];
 }
 
 var Drink = function() {
@@ -65,20 +65,32 @@ pantry.add(i10);
 pantry.add(i11);
 pantry.add(i12);
 
-var randomStrongIngredient = pantry.strong[Math.floor(Math.random() * pantry.strong.length)];
-var randomSaltyIngredient = pantry.salty[Math.floor(Math.random() * pantry.salty.length)];
-var randomSweetIngredient = pantry.sweet[Math.floor(Math.random() * pantry.sweet.length)];
-var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];
-
-var drink = new Drink();
-drink.add(randomStrongIngredient);
-drink.add(randomSaltyIngredient);
-drink.add(randomSweetIngredient);
-drink.add(randomFruityIngredient);
-
 Drink.prototype.display = function() {
-	$('.results').text('May I suggest the following ingredients:');
-}
+
+	$('.results').html('<p>May I suggest the following ingredients:</p><p> ' + this.strong.type + '</p><p> ' + this.salty[0].type + '</p> ');
+
+	/*this.strong.forEach(function(pantry) {
+
+		$('.results').html('<p> ' + this.strong + ' </p>');
+		var elem = $('<h2>');
+
+	console.log();
+
+	});
+
+	/*drink.salty.forEach(function() {
+
+	});
+
+	drink.sweet.forEach(function() {
+
+	});
+
+	drink.fruity.forEach(function() {
+
+	});*/
+
+};
 
 $(document).ready(function() {
 
@@ -98,19 +110,33 @@ $(document).ready(function() {
 	});
 
 	function checkArray() {
+
+		var drink = new Drink();
+
+		var randomStrongIngredient = pantry.strong[Math.floor(Math.random() * pantry.strong.length)];
+		var randomSaltyIngredient = pantry.salty[Math.floor(Math.random() * pantry.salty.length)];
+		var randomSweetIngredient = pantry.sweet[Math.floor(Math.random() * pantry.sweet.length)];
+		var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];
+
 		console.log(userChoiceArray[0]);
 		if (userChoiceArray[0] === true) {
-			console.log(drink.strong[0].type);
+			drink.add(randomStrongIngredient);
+			console.log(randomStrongIngredient);
 		}
 		if (userChoiceArray[1] === true) {
-			console.log(drink.salty[0].type);
+			drink.add(randomSaltyIngredient);
+			console.log(randomSaltyIngredient);
 		}
 		if (userChoiceArray[2] === true) {
-			console.log(drink.sweet[0].type);
+			drink.add(randomSweetIngredient);
+			console.log(randomSweetIngredient);
 		}
 		if (userChoiceArray[3] === true) {
-			console.log(drink.fruity[0].type);
+			drink.add(randomFruityIngredient);
+			console.log(randomFruityIngredient);
 		}
+
+		drink.display();
 	};
 });
 
