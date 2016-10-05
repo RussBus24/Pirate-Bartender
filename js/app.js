@@ -16,10 +16,6 @@ var RandomIngredient = function() {
 
 var Drink = function() {
 	this.ingredients = [];
-	/*this.strong = [];
-	this.salty = [];
-	this.sweet = [];
-	this.fruity = [];*/
 }
 
 var userChoiceArray = [];
@@ -75,8 +71,6 @@ var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fru
 
 Drink.prototype.display = function() {
 
-	//$('.results').html('<p>May I suggest the following ingredients:</p>');
-
 	this.ingredients.forEach(function(ingredient) {
 
 	$('.results').html('<p>May I suggest the following ingredients:</p>');
@@ -87,13 +81,11 @@ Drink.prototype.display = function() {
 
 	elem.append(list);
 
-	$('.ingredient-list').text(ingredient.type);
+	for (var i = 0; i < ingredient.length; i++) {
+		$('.ingredient-list').text(ingredient);
+	}
 
-	/*for (var i = 0; i < ingredient.length; i++) {
-		$('.ingredient-list').text(ingredient[i].type);
-	}*/
-
-	console.log(ingredient.type);
+	console.log(ingredient);
 
 	});
 
@@ -118,28 +110,21 @@ $(document).ready(function() {
 
 	function checkArray() {
 
-		/*var drink = new Drink();
-
-		var randomStrongIngredient = pantry.strong[Math.floor(Math.random() * pantry.strong.length)];
-		var randomSaltyIngredient = pantry.salty[Math.floor(Math.random() * pantry.salty.length)];
-		var randomSweetIngredient = pantry.sweet[Math.floor(Math.random() * pantry.sweet.length)];
-		var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];*/
-
 		console.log(userChoiceArray[0]);
-		if (userChoiceArray[0] === true) {
-			drink.add(randomStrongIngredient);
+		if (userChoiceArray[0]) {
+			drink.add(randomStrongIngredient.type);
 			console.log(randomStrongIngredient);
 		}
-		if (userChoiceArray[1] === true) {
-			drink.add(randomSaltyIngredient);
+		if (userChoiceArray[1]) {
+			drink.add(randomSaltyIngredient.type);
 			console.log(randomSaltyIngredient);
 		}
-		if (userChoiceArray[2] === true) {
-			drink.add(randomSweetIngredient);
+		if (userChoiceArray[2]) {
+			drink.add(randomSweetIngredient.type);
 			console.log(randomSweetIngredient);
 		}
-		if (userChoiceArray[3] === true) {
-			drink.add(randomFruityIngredient);
+		if (userChoiceArray[3]) {
+			drink.add(randomFruityIngredient.type);
 			console.log(randomFruityIngredient);
 		}
 
