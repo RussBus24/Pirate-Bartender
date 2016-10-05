@@ -15,10 +15,11 @@ var RandomIngredient = function() {
 }
 
 var Drink = function() {
-	this.strong = [];
+	this.ingredients = [];
+	/*this.strong = [];
 	this.salty = [];
 	this.sweet = [];
-	this.fruity = [];
+	this.fruity = [];*/
 }
 
 var userChoiceArray = [];
@@ -35,7 +36,7 @@ Pantry.prototype.add = function(ingredient) {
 }
 
 Drink.prototype.add = function(ingredient) {
-	this[ingredient.name].push(ingredient);
+	this.ingredients.push(ingredient);
 }
 
 var i1 = new Ingredient('strong', 'Tequila');
@@ -65,30 +66,36 @@ pantry.add(i10);
 pantry.add(i11);
 pantry.add(i12);
 
+var drink = new Drink();
+
+var randomStrongIngredient = pantry.strong[Math.floor(Math.random() * pantry.strong.length)];
+var randomSaltyIngredient = pantry.salty[Math.floor(Math.random() * pantry.salty.length)];
+var randomSweetIngredient = pantry.sweet[Math.floor(Math.random() * pantry.sweet.length)];
+var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];
+
 Drink.prototype.display = function() {
 
-	$('.results').html('<p>May I suggest the following ingredients:</p><p> ' + this.strong[0].type + '</p><p> ' + this.salty[0].type + '</p> ');
+	//$('.results').html('<p>May I suggest the following ingredients:</p>');
 
-	/*this.strong.forEach(function(pantry) {
+	this.ingredients.forEach(function(ingredient) {
 
-		$('.results').html('<p> ' + this.strong + ' </p>');
-		var elem = $('<h2>');
+	$('.results').html('<p>May I suggest the following ingredients:</p>');
 
-	console.log();
+	var elem = $('<ul>');
+
+	var list = $('<li>');
+
+	elem.append(list);
+
+	$('.ingredient-list').text(ingredient.type);
+
+	/*for (var i = 0; i < ingredient.length; i++) {
+		$('.ingredient-list').text(ingredient[i].type);
+	}*/
+
+	console.log(ingredient.type);
 
 	});
-
-	/*drink.salty.forEach(function() {
-
-	});
-
-	drink.sweet.forEach(function() {
-
-	});
-
-	drink.fruity.forEach(function() {
-
-	});*/
 
 };
 
@@ -111,12 +118,12 @@ $(document).ready(function() {
 
 	function checkArray() {
 
-		var drink = new Drink();
+		/*var drink = new Drink();
 
 		var randomStrongIngredient = pantry.strong[Math.floor(Math.random() * pantry.strong.length)];
 		var randomSaltyIngredient = pantry.salty[Math.floor(Math.random() * pantry.salty.length)];
 		var randomSweetIngredient = pantry.sweet[Math.floor(Math.random() * pantry.sweet.length)];
-		var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];
+		var randomFruityIngredient = pantry.fruity[Math.floor(Math.random() * pantry.fruity.length)];*/
 
 		console.log(userChoiceArray[0]);
 		if (userChoiceArray[0] === true) {
