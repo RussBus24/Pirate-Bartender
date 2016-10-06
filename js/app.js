@@ -75,17 +75,16 @@ Drink.prototype.display = function() {
 
 	$('.results').html('<p>May I suggest the following ingredients:</p>');
 
-	var elem = $('<ul>');
+	var elem = $('<ul>', {"class":"list"});
 
-	var list = $('<li>');
+	var list = $('<li>', {"class":"entry"});
+	list.text(ingredient);
 
 	elem.append(list);
-
-	for (var i = 0; i < ingredient.length; i++) {
-		$('.ingredient-list').text(ingredient);
-	}
-
+	
 	console.log(ingredient);
+
+	$('.ingredient-list').append(elem);
 
 	});
 
